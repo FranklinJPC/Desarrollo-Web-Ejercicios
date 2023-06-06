@@ -3,6 +3,7 @@ const {engine} = require('express-handlebars')
 const { request } = require('http')
 const path = require('path')
 const app = express()
+const PORT = process.env.PORT || 3000;
 
 /* ------- Rutas --------- */ 
 /* ------- Handlebars ------ */ 
@@ -83,5 +84,7 @@ app.get('/busqueda', (req, res) =>{
 app.use((req, res) =>{
     res.render('error')
 })
-app.listen(3003)
-console.log("Servidor en progreso....")
+app.listen(PORT, () => {
+    console.log(`Servidor en progreso...."${PORT}`);
+});
+//app.listen(3003)
